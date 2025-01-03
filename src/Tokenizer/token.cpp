@@ -141,7 +141,9 @@ class tokeniser
      local = input;
      length = input.length();
      current = local[cursor++];
+
    }
+
    void tokenize() {
      while(current)
      {
@@ -151,28 +153,29 @@ class tokeniser
        }
        else if(isdigit(current)){
          TOKEN_LIST.push_back(tokenizeDigit());
-       }
-       switch(current)
-       {
-         case '(' :
+       }else {
+         switch(current)
          {
-           TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_LEFT_PAR));
-         }
-         case ')' :
-         {
-           TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_RIGHT_PAR));
-         }
-         case ',' :
-         {
-           TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_COMMA));
-         }
-         case ';' :
-         {
-           TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_SEMICOLON));
-         }
-         default :
-         {
-           cout << "[!] ERROR : Token not accepted " << current << endl;
+           case '(' :
+           {
+             TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_LEFT_PAR));
+           }
+           case ')' :
+           {
+             TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_RIGHT_PAR));
+           }
+           case ',' :
+           {
+             TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_COMMA));
+           }
+           case ';' :
+           {
+             TOKEN_LIST.push_back(tokenizeSpecial(TOKEN_SEMICOLON));
+           }
+           default :
+           {
+             cout << "[!] ERROR : Token not accepted " << current << endl;
+           }
          }
        }
      }

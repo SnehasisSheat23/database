@@ -1,0 +1,9 @@
+# ninja log v6
+7	997	1735942308978408959	CMakeFiles/database.dir/src/Parser_/parser.cpp.o	710ab56794106d4b
+6	1176	1735942643685911579	CMakeFiles/database.dir/src/Tokenizer/token.cpp.o	b175511a55b5498f
+7	981	1735927312001191968	CMakeFiles/database.dir/src/token.cpp.o	2e4b55956b4c9d84
+1177	1319	1735942644856230032	database	f5e669482bf4fd6e
+17	1139	1735888120555196878	CMakeFiles/database.dir/main.cpp.o	bc2aee7da961e530
+2	79	1735942980241460624	build.ninja	a84ad1f12283a4f9
+7	1014	1735943047628339093	CMakeFiles/database.dir/src/Tokenizer/token.cpp.o	b175511a55b5498f
+1014	1158	1735943048635426708	database	f5e669482bf4fd6e
