@@ -89,7 +89,7 @@ class Parser {
         }
 
         void advance() {
-            if (currentToken == end)
+            if (currentToken != end)
                 ++currentToken;
         }
 
@@ -160,7 +160,7 @@ class Parser {
             do {
                 OrderByNode::OrderElement element;
                 element.expression = parseExpression();
-                element.direction = match("ASC") ? OrderDirection::DESC : OrderDirection::ASC;
+                element.direction = match("DESC") ? OrderDirection::DESC : OrderDirection::ASC;
                 orderBy->elements.push_back(move(element));
             }while (match(","));
             return orderBy;
@@ -168,3 +168,20 @@ class Parser {
 
 
 };
+
+int main() {
+    vector<string> tokens = {
+        "SELECT", "name", ",", "age", "FROM", "students", "WHERE", "age", ">", "18",
+        "GROUP", "BY", "class", "ORDER", "BY", "age", "DESC"
+    };
+
+    try {
+        Parser parser(tokens);
+        auto fetchNode = parser.parseSelect();
+        cout << "success!" << endl;
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
+
+    return 0;
+}
